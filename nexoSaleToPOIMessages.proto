@@ -1,0 +1,1466 @@
+package default;
+
+message UnspecifiedType
+{
+	required string baseObjectType = 1;
+	required bytes object = 2;
+}
+
+message AdminRequestType
+{
+	optional string ServiceIdentification = 1;
+}
+
+message AllowedProductType
+{
+	optional string AdditionalProductInfo = 1;
+	optional string EanUpc = 2;
+	required string ProductCode = 3;
+	optional string ProductLabel = 4;
+}
+
+message AmountType
+{
+	optional string Currency = 1;
+}
+
+message AmountsReqType
+{
+	optional double CashBackAmount = 1;
+	required string Currency = 2;
+	optional double MaximumCashBackAmount = 3;
+	optional double MinimumAmountToDeliver = 4;
+	optional double MinimumSplitAmount = 5;
+	optional double PaidAmount = 6;
+	optional double RequestedAmount = 7;
+	optional double TipAmount = 8;
+}
+
+message AmountsRespType
+{
+	required double AuthorizedAmount = 1;
+	optional double CashBackAmount = 2;
+	optional string Currency = 3;
+	optional double TipAmount = 4;
+	optional double TotalFeesAmount = 5;
+	optional double TotalRebatesAmount = 6;
+}
+
+message AreaSizeType
+{
+	required string X = 1;
+	required string Y = 2;
+}
+
+message CardAcquisitionTransactionType
+{
+	repeated string AllowedLoyaltyBrand = 1;
+	repeated string AllowedPaymentBrand = 2;
+	optional bool CashBackFlag = 3;
+	optional string CustomerLanguage = 4;
+	optional bool ForceCustomerSelectionFlag = 5;
+	repeated UnspecifiedType ForceEntryMode = 6;
+	optional UnspecifiedType LoyaltyHandling = 7;
+	optional UnspecifiedType PaymentType = 8;
+	optional double TotalAmount = 9;
+}
+
+message CardReaderAPDURequestType
+{
+	required bytes APDUClass = 1;
+	optional bytes APDUData = 2;
+	optional bytes APDUExpectedLength = 3;
+	required bytes APDUInstruction = 4;
+	required bytes APDUPar1 = 5;
+	required bytes APDUPar2 = 6;
+}
+
+message CoinsOrBillsType
+{
+	required int64 Number = 1;
+	required double UnitValue = 2;
+}
+
+message CriteriaOrderType
+{
+	required string Target = 1;
+}
+
+message CurrencyConversionType
+{
+	optional double Commission = 1;
+	required AmountType ConvertedAmount = 2;
+	optional bool CustomerApprovedFlag = 3;
+	optional string Declaration = 4;
+	optional double Markup = 5;
+	optional double Rate = 6;
+}
+
+message CustomerOrderType
+{
+	optional string AccessedBy = 1;
+	optional string AdditionalInformation = 2;
+	optional string Currency = 3;
+	optional double CurrentAmount = 4;
+	optional string CustomerOrderID = 5;
+	optional int64 EndDate = 6;
+	required double ForecastedAmount = 7;
+	optional bool OpenOrderState = 8;
+	required int64 StartDate = 9;
+}
+
+message DiagnosisRequestType
+{
+	repeated string AcquirerID = 1;
+	optional bool HostDiagnosisFlag = 2;
+	optional string POIID = 3;
+}
+
+message EncapsulatedContentType
+{
+	optional bytes Content = 1;
+	required UnspecifiedType ContentType = 2;
+}
+
+message GeographicCoordinatesType
+{
+	required string Latitude = 1;
+	required string Longitude = 2;
+}
+
+message HostStatusType
+{
+	required string AcquirerID = 1;
+	optional bool IsReachableFlag = 2;
+}
+
+message ICCResetDataType
+{
+	optional bytes ATRValue = 1;
+	optional bytes CardStatusWords = 2;
+}
+
+message InputDataType
+{
+	optional bool BeepKeyFlag = 1;
+	optional string DefaultInputString = 2;
+	required UnspecifiedType Device = 3;
+	optional bool DisableCancelFlag = 4;
+	optional bool DisableCorrectFlag = 5;
+	optional bool DisableValidFlag = 6;
+	optional bool FromRightToLeftFlag = 7;
+	optional bool GlobalCorrectionFlag = 8;
+	optional bool ImmediateResponseFlag = 9;
+	required UnspecifiedType InfoQualify = 10;
+	required UnspecifiedType InputCommand = 11;
+	optional bool MaskCharactersFlag = 12;
+	optional int64 MaxDecimalLength = 13;
+	optional int64 MaxInputTime = 14;
+	optional int64 MaxLength = 15;
+	optional bool MenuBackFlag = 16;
+	optional int64 MinLength = 17;
+	optional bool NotifyCardInputFlag = 18;
+	optional string StringMask = 19;
+	optional bool WaitUserValidationFlag = 20;
+}
+
+message InstalmentType
+{
+	optional double Charges = 1;
+	optional double CumulativeAmount = 2;
+	optional double FirstAmount = 3;
+	optional string FirstPaymentDate = 4;
+	optional UnspecifiedType InstalmentType = 5;
+	optional int64 Period = 6;
+	optional UnspecifiedType PeriodUnit = 7;
+	optional string PlanID = 8;
+	optional int64 SequenceNumber = 9;
+	optional int64 TotalNbOfPayments = 10;
+}
+
+message KEKIdentifierType
+{
+	optional bytes DerivationIdentifier = 1;
+	required string KeyIdentifier = 2;
+	required string KeyVersion = 3;
+}
+
+message LogoutRequestType
+{
+	optional bool MaintenanceAllowed = 1;
+}
+
+message LoyaltyAccountIDType
+{
+	repeated UnspecifiedType EntryMode = 1;
+	optional UnspecifiedType IdentificationSupport = 2;
+	required UnspecifiedType IdentificationType = 3;
+}
+
+message LoyaltyAccountType
+{
+	required LoyaltyAccountIDType LoyaltyAccountID = 1;
+	optional string LoyaltyBrand = 2;
+}
+
+message LoyaltyAmountType
+{
+	optional string Currency = 1;
+	optional UnspecifiedType LoyaltyUnit = 2;
+}
+
+message LoyaltyTotalsType
+{
+	required double TransactionAmount = 1;
+	required int64 TransactionCount = 2;
+	required UnspecifiedType TransactionType = 3;
+}
+
+message MessageHeaderType
+{
+	optional string DeviceID = 1;
+	required UnspecifiedType MessageCategory = 2;
+	required UnspecifiedType MessageClass = 3;
+	required UnspecifiedType MessageType = 4;
+	required string POIID = 5;
+	optional string ProtocolVersion = 6;
+	required string SaleID = 7;
+	optional string ServiceID = 8;
+}
+
+message MessageReferenceType
+{
+	optional string DeviceID = 1;
+	optional UnspecifiedType MessageCategory = 2;
+	optional string POIID = 3;
+	optional string SaleID = 4;
+	optional string ServiceID = 5;
+}
+
+message OutputBarcodeType
+{
+	optional UnspecifiedType BarcodeType = 1;
+	optional string BarcodeValue = 2;
+	optional bytes QRCodeBinaryValue = 3;
+	enum QRCodeEncodingModeEnumeration
+	{
+		QRCodeEncodingModeEnumeration_Alphanumeric = 1;
+		QRCodeEncodingModeEnumeration_Binary = 2;
+		QRCodeEncodingModeEnumeration_Kanji = 3;
+		QRCodeEncodingModeEnumeration_Numeric = 4;
+	}
+	optional QRCodeEncodingModeEnumeration QRCodeEncodingMode = 4;
+	enum QRCodeErrorCorrectionEnumeration
+	{
+		QRCodeErrorCorrectionEnumeration_H = 1;
+		QRCodeErrorCorrectionEnumeration_L = 2;
+		QRCodeErrorCorrectionEnumeration_M = 3;
+		QRCodeErrorCorrectionEnumeration_Q = 4;
+	}
+	optional QRCodeErrorCorrectionEnumeration QRCodeErrorCorrection = 5;
+	optional string QRCodeVersion = 6;
+}
+
+message OutputTextType
+{
+	optional UnspecifiedType Alignment = 1;
+	optional UnspecifiedType CharacterHeight = 2;
+	optional int64 CharacterSet = 3;
+	optional UnspecifiedType CharacterStyle = 4;
+	optional UnspecifiedType CharacterWidth = 5;
+	optional UnspecifiedType Color = 6;
+	optional bool EndOfLineFlag = 7;
+	optional string Font = 8;
+	optional int64 StartColumn = 9;
+	optional int64 StartRow = 10;
+}
+
+message POIProfileType
+{
+	optional UnspecifiedType GenericProfile = 1;
+	optional UnspecifiedType ServiceProfiles = 2;
+}
+
+message POISoftwareType
+{
+	required string ApplicationName = 1;
+	optional string CertificationCode = 2;
+	optional string ComponentDescription = 3;
+	optional string ComponentType = 4;
+	required string ProviderIdentification = 5;
+	required string SoftwareVersion = 6;
+}
+
+message POITerminalDataType
+{
+	required UnspecifiedType POICapabilities = 1;
+	optional POIProfileType POIProfile = 2;
+	required string POISerialNumber = 3;
+	required UnspecifiedType TerminalEnvironment = 4;
+}
+
+message ParameterType
+{
+	optional bytes InitialisationVector = 1;
+}
+
+message PaymentTokenType
+{
+	optional int64 ExpiryDateTime = 1;
+	required UnspecifiedType TokenRequestedType = 2;
+	required string TokenValue = 3;
+}
+
+message PaymentTotalsType
+{
+	required double TransactionAmount = 1;
+	required int64 TransactionCount = 2;
+	required UnspecifiedType TransactionType = 3;
+}
+
+message PredefinedContentType
+{
+	optional string Language = 1;
+	required string ReferenceID = 2;
+}
+
+message ReconciliationRequestType
+{
+	repeated string AcquirerID = 1;
+	optional string POIReconciliationID = 2;
+	required UnspecifiedType ReconciliationType = 3;
+}
+
+message RelativeDistinguishedNameType
+{
+	required UnspecifiedType AttributeType = 1;
+	required string AttributeValue = 2;
+}
+
+message ResponseType
+{
+	optional string AdditionalResponse = 1;
+	optional UnspecifiedType ErrorCondition = 2;
+	required UnspecifiedType Result = 3;
+}
+
+message SaleItemRebateType
+{
+	optional string EanUpc = 1;
+	optional double ItemAmount = 2;
+	required int64 ItemID = 3;
+	required string ProductCode = 4;
+	optional double Quantity = 5;
+	optional string RebateLabel = 6;
+	optional UnspecifiedType UnitOfMeasure = 7;
+}
+
+message SaleItemType
+{
+	optional string AdditionalProductInfo = 1;
+	optional string EanUpc = 2;
+	required double ItemAmount = 3;
+	required int64 ItemID = 4;
+	required string ProductCode = 5;
+	optional string ProductLabel = 6;
+	optional double Quantity = 7;
+	optional string SaleChannel = 8;
+	optional string TaxCode = 9;
+	optional UnspecifiedType UnitOfMeasure = 10;
+	optional double UnitPrice = 11;
+}
+
+message SaleProfileType
+{
+	optional UnspecifiedType GenericProfile = 1;
+	optional UnspecifiedType ServiceProfiles = 2;
+}
+
+message SaleSoftwareType
+{
+	required string ApplicationName = 1;
+	optional string CertificationCode = 2;
+	optional string ComponentDescription = 3;
+	optional string ComponentType = 4;
+	required string ProviderIdentification = 5;
+	required string SoftwareVersion = 6;
+}
+
+message SaleTerminalDataType
+{
+	optional UnspecifiedType SaleCapabilities = 1;
+	optional SaleProfileType SaleProfile = 2;
+	optional UnspecifiedType TerminalEnvironment = 3;
+	optional string TotalsGroupID = 4;
+}
+
+message SaleToIssuerDataType
+{
+	optional string StatementReference = 1;
+}
+
+message SearchANDType
+{
+	enum OperatorEnumeration
+	{
+		OperatorEnumeration_EQ = 1;
+		OperatorEnumeration_GE = 2;
+		OperatorEnumeration_GT = 3;
+		OperatorEnumeration_LE = 4;
+		OperatorEnumeration_LT = 5;
+	}
+	required OperatorEnumeration Operator = 1;
+	required string Target = 2;
+	required string Value = 3;
+}
+
+message SearchORType
+{
+	repeated SearchANDType SearchAND = 1;
+}
+
+message SearchOutputOrderType
+{
+	repeated CriteriaOrderType CriteriaOrder = 1;
+}
+
+message SensitiveMobileDataType
+{
+	optional string IMEI = 1;
+	optional string IMSI = 2;
+	required string MSISDN = 3;
+}
+
+message SignatureImageType
+{
+	optional bytes ImageData = 1;
+	optional string ImageFormat = 2;
+	optional string ImageReference = 3;
+}
+
+message SignaturePointType
+{
+	required string X = 1;
+	required string Y = 2;
+}
+
+message SoundContentType
+{
+	optional string Language = 1;
+	optional string ReferenceID = 2;
+	optional UnspecifiedType SoundFormat = 3;
+}
+
+message SoundRequestType
+{
+	optional UnspecifiedType ResponseMode = 1;
+	required UnspecifiedType SoundAction = 2;
+	required SoundContentType SoundContent = 3;
+	optional int64 SoundVolume = 4;
+}
+
+message SoundResponseType
+{
+	required ResponseType Response = 1;
+}
+
+message SponsoredMerchantType
+{
+	optional string Address = 1;
+	required string CommonName = 2;
+	required string CountryCode = 3;
+	required string MerchantCategoryCode = 4;
+	required string RegisteredIdentifier = 5;
+}
+
+message StoredValueAccountIDType
+{
+	repeated UnspecifiedType EntryMode = 1;
+	optional string ExpiryDate = 2;
+	required UnspecifiedType IdentificationType = 3;
+	optional string OwnerName = 4;
+	required UnspecifiedType StoredValueAccountType = 5;
+	optional string StoredValueProvider = 6;
+}
+
+message StoredValueAccountStatusType
+{
+	optional double CurrentBalance = 1;
+	required StoredValueAccountIDType StoredValueAccountID = 2;
+}
+
+message TotalFilterType
+{
+	optional string OperatorID = 1;
+	optional string POIID = 2;
+	optional string SaleID = 3;
+	optional string ShiftNumber = 4;
+	optional string TotalsGroupID = 5;
+}
+
+message TrackDataType
+{
+	optional UnspecifiedType TrackFormat = 1;
+	optional int64 TrackNumb = 2;
+}
+
+message TransactionConditionsType
+{
+	repeated string AcquirerID = 1;
+	repeated string AllowedLoyaltyBrand = 2;
+	repeated string AllowedPaymentBrand = 3;
+	optional string CustomerLanguage = 4;
+	optional bool DebitPreferredFlag = 5;
+	repeated UnspecifiedType ForceEntryMode = 6;
+	optional bool ForceOnlineFlag = 7;
+	optional UnspecifiedType LoyaltyHandling = 8;
+	optional string MerchantCategoryCode = 9;
+}
+
+message TransactionIdentificationType
+{
+	required int64 TimeStamp = 1;
+	required string TransactionID = 2;
+}
+
+message TransactionStatusRequestType
+{
+	repeated UnspecifiedType DocumentQualifier = 1;
+	optional MessageReferenceType MessageReference = 2;
+	optional bool ReceiptReprintFlag = 3;
+}
+
+message TransactionTotalsType
+{
+	optional string AcquirerID = 1;
+	optional string CardBrand = 2;
+	optional UnspecifiedType ErrorCondition = 3;
+	optional string HostReconciliationID = 4;
+	optional string LoyaltyCurrency = 5;
+	repeated LoyaltyTotalsType LoyaltyTotals = 6;
+	optional UnspecifiedType LoyaltyUnit = 7;
+	optional string OperatorID = 8;
+	optional string POIID = 9;
+	optional string PaymentCurrency = 10;
+	required UnspecifiedType PaymentInstrumentType = 11;
+	repeated PaymentTotalsType PaymentTotals = 12;
+	optional string SaleID = 13;
+	optional string ShiftNumber = 14;
+	optional string TotalsGroupID = 15;
+}
+
+message TransmitRequestType
+{
+	required string DestinationAddress = 1;
+	required int64 MaximumTransmitTime = 2;
+	required bytes Message = 3;
+	optional bool WaitResponseFlag = 4;
+}
+
+message TransmitResponseType
+{
+	optional bytes Message = 1;
+	required ResponseType Response = 2;
+}
+
+message UTMCoordinatesType
+{
+	required string UTMEastward = 1;
+	required string UTMNorthward = 2;
+	required string UTMZone = 3;
+}
+
+message AdminResponseType
+{
+	required ResponseType Response = 1;
+}
+
+message AlgorithmIdentifier
+{
+	required UnspecifiedType Algorithm = 1;
+	optional ParameterType Parameter = 2;
+}
+
+message CardReaderAPDUResponseType
+{
+	optional bytes APDUData = 1;
+	required bytes CardStatusWords = 2;
+	required ResponseType Response = 3;
+}
+
+message CardReaderInitResponseType
+{
+	repeated UnspecifiedType EntryMode = 1;
+	optional ICCResetDataType ICCResetData = 2;
+	required ResponseType Response = 3;
+	repeated TrackDataType TrackData = 4;
+}
+
+message CardReaderPowerOffResponseType
+{
+	required ResponseType Response = 1;
+}
+
+message CashHandlingDeviceType
+{
+	required bool CashHandlingOKFlag = 1;
+	repeated CoinsOrBillsType CoinsOrBills = 2;
+	required string Currency = 3;
+}
+
+message CheckDataType
+{
+	optional string AccountNumber = 1;
+	optional string BankID = 2;
+	optional string CheckCardNumber = 3;
+	optional string CheckNumber = 4;
+	optional string Country = 5;
+	optional TrackDataType TrackData = 6;
+	optional UnspecifiedType TypeCode = 7;
+}
+
+message DigestedDataType
+{
+	required bytes Digest = 1;
+	required AlgorithmIdentifier DigestAlgorithm = 2;
+	required EncapsulatedContentType EncapsulatedContent = 3;
+	optional UnspecifiedType Version = 4;
+}
+
+message EnableServiceResponseType
+{
+	required ResponseType Response = 1;
+}
+
+message EncryptedContentType
+{
+	required AlgorithmIdentifier ContentEncryptionAlgorithm = 1;
+	required UnspecifiedType ContentType = 2;
+	required bytes EncryptedData = 3;
+}
+
+message GeolocationType
+{
+	optional GeographicCoordinatesType GeographicCoordinates = 1;
+	optional UTMCoordinatesType UTMCoordinates = 2;
+}
+
+message GetTotalsRequestType
+{
+	optional UnspecifiedType TotalDetails = 1;
+	optional TotalFilterType TotalFilter = 2;
+}
+
+message GetTotalsResponseType
+{
+	required string POIReconciliationID = 1;
+	required ResponseType Response = 2;
+	repeated TransactionTotalsType TransactionTotals = 3;
+}
+
+message IssuerType
+{
+	repeated RelativeDistinguishedNameType RelativeDistinguishedName = 1;
+}
+
+message KEKType
+{
+	required bytes EncryptedKey = 1;
+	required KEKIdentifierType KEKIdentifier = 2;
+	required AlgorithmIdentifier KeyEncryptionAlgorithm = 3;
+	optional UnspecifiedType Version = 4;
+}
+
+message LoginRequestType
+{
+	repeated UnspecifiedType CustomerOrderReq = 1;
+	required int64 DateTime = 2;
+	optional string OperatorID = 3;
+	required string OperatorLanguage = 4;
+	optional string POISerialNumber = 5;
+	required SaleSoftwareType SaleSoftware = 6;
+	optional SaleTerminalDataType SaleTerminalData = 7;
+	optional string ShiftNumber = 8;
+	optional UnspecifiedType TokenRequestedType = 9;
+	optional bool TrainingModeFlag = 10;
+}
+
+message LogoutResponseType
+{
+	required ResponseType Response = 1;
+}
+
+message LoyaltyAccountReqType
+{
+	optional TransactionIdentificationType CardAcquisitionReference = 1;
+	optional LoyaltyAccountIDType LoyaltyAccountID = 2;
+}
+
+message LoyaltyAccountStatusType
+{
+	optional string Currency = 1;
+	optional double CurrentBalance = 2;
+	required LoyaltyAccountType LoyaltyAccount = 3;
+	optional UnspecifiedType LoyaltyUnit = 4;
+}
+
+message LoyaltyAcquirerDataType
+{
+	optional string ApprovalCode = 1;
+	optional string HostReconciliationID = 2;
+	optional string LoyaltyAcquirerID = 3;
+	optional TransactionIdentificationType LoyaltyTransactionID = 4;
+}
+
+message LoyaltyDataType
+{
+	optional TransactionIdentificationType CardAcquisitionReference = 1;
+	optional LoyaltyAccountIDType LoyaltyAccountID = 2;
+	optional LoyaltyAmountType LoyaltyAmount = 3;
+}
+
+message MenuEntryType
+{
+	optional bool DefaultSelectedFlag = 1;
+	optional UnspecifiedType MenuEntryTag = 2;
+	required UnspecifiedType OutputFormat = 3;
+	repeated OutputTextType OutputText = 4;
+	optional bytes OutputXHTML = 5;
+	optional PredefinedContentType PredefinedContent = 6;
+}
+
+message NamedKeyEncryptedDataType
+{
+	required EncryptedContentType EncryptedContent = 1;
+	optional string KeyName = 2;
+	optional UnspecifiedType Version = 3;
+}
+
+message OriginalPOITransactionType
+{
+	optional string AcquirerID = 1;
+	optional string ApprovalCode = 2;
+	optional string CustomerLanguage = 3;
+	optional TransactionIdentificationType HostTransactionID = 4;
+	optional bool LastTransactionFlag = 5;
+	optional string POIID = 6;
+	optional TransactionIdentificationType POITransactionID = 7;
+	optional bool ReuseCardDataFlag = 8;
+	optional string SaleID = 9;
+}
+
+message OutputContentType
+{
+	optional OutputBarcodeType OutputBarcode = 1;
+	required UnspecifiedType OutputFormat = 2;
+	repeated OutputTextType OutputText = 3;
+	optional bytes OutputXHTML = 4;
+	optional PredefinedContentType PredefinedContent = 5;
+}
+
+message OutputResultType
+{
+	required UnspecifiedType Device = 1;
+	required UnspecifiedType InfoQualify = 2;
+	required ResponseType Response = 3;
+}
+
+message POIDataType
+{
+	optional string POIReconciliationID = 1;
+	required TransactionIdentificationType POITransactionID = 2;
+}
+
+message POIStatusType
+{
+	optional bool CardReaderOKFlag = 1;
+	repeated CashHandlingDeviceType CashHandlingDevice = 2;
+	optional bool CommunicationOKFlag = 3;
+	optional bool FraudPreventionFlag = 4;
+	required UnspecifiedType GlobalStatus = 5;
+	optional bool PEDOKFlag = 6;
+	optional UnspecifiedType PrinterStatus = 7;
+	optional bool SecurityOKFlag = 8;
+}
+
+message POISystemDataType
+{
+	optional bool CustomerOrderStatus = 1;
+	required int64 DateTime = 2;
+	required POISoftwareType POISoftware = 3;
+	optional POIStatusType POIStatus = 4;
+	optional POITerminalDataType POITerminalData = 5;
+	optional bool TokenRequestStatus = 6;
+}
+
+message PaymentAcquirerDataType
+{
+	optional string AcquirerID = 1;
+	required string AcquirerPOIID = 2;
+	optional TransactionIdentificationType AcquirerTransactionID = 3;
+	optional string ApprovalCode = 4;
+	required string MerchantID = 5;
+}
+
+message PaymentReceiptType
+{
+	required UnspecifiedType DocumentQualifier = 1;
+	optional bool IntegratedPrintFlag = 2;
+	required OutputContentType OutputContent = 3;
+	optional bool RequiredSignatureFlag = 4;
+}
+
+message PaymentTransactionType
+{
+	required AmountsReqType AmountsReq = 1;
+	optional OriginalPOITransactionType OriginalPOITransaction = 2;
+	repeated SaleItemType SaleItem = 3;
+	optional TransactionConditionsType TransactionConditions = 4;
+}
+
+message PrintOutputType
+{
+	required UnspecifiedType DocumentQualifier = 1;
+	optional bool IntegratedPrintFlag = 2;
+	required OutputContentType OutputContent = 3;
+	optional bytes OutputSignature = 4;
+	optional bool RequiredSignatureFlag = 5;
+	required UnspecifiedType ResponseMode = 6;
+}
+
+message PrintRequestType
+{
+	required PrintOutputType PrintOutput = 1;
+}
+
+message PrintResponseType
+{
+	required UnspecifiedType DocumentQualifier = 1;
+	required ResponseType Response = 2;
+}
+
+message RawSignatureType
+{
+	optional AreaSizeType AreaSize = 1;
+	repeated SignaturePointType SignaturePoint = 2;
+}
+
+message RebatesType
+{
+	optional string RebateLabel = 1;
+	repeated SaleItemRebateType SaleItemRebate = 2;
+	optional double TotalRebate = 3;
+}
+
+message ReconciliationResponseType
+{
+	optional string POIReconciliationID = 1;
+	required UnspecifiedType ReconciliationType = 2;
+	required ResponseType Response = 3;
+	repeated TransactionTotalsType TransactionTotals = 4;
+}
+
+message ReversalResponseType
+{
+	optional string CustomerOrderID = 1;
+	optional OriginalPOITransactionType OriginalPOITransaction = 2;
+	optional POIDataType POIData = 3;
+	repeated PaymentReceiptType PaymentReceipt = 4;
+	required ResponseType Response = 5;
+	optional double ReversedAmount = 6;
+}
+
+message SaleDataType
+{
+	optional string CustomerOrderID = 1;
+	repeated UnspecifiedType CustomerOrderReq = 2;
+	optional string OperatorID = 3;
+	optional string OperatorLanguage = 4;
+	optional string SaleReferenceID = 5;
+	optional SaleTerminalDataType SaleTerminalData = 6;
+	optional string SaleToAcquirerData = 7;
+	optional SaleToIssuerDataType SaleToIssuerData = 8;
+	optional string SaleToPOIData = 9;
+	required TransactionIdentificationType SaleTransactionID = 10;
+	optional string ShiftNumber = 11;
+	repeated SponsoredMerchantType SponsoredMerchant = 12;
+	optional UnspecifiedType TokenRequestedType = 13;
+}
+
+message SearchCriteriasType
+{
+	repeated SearchORType SearchOR = 1;
+}
+
+message SensitiveCardDataType
+{
+	optional string CardSeqNumb = 1;
+	optional string ExpiryDate = 2;
+	optional string PAN = 3;
+	repeated TrackDataType TrackData = 4;
+}
+
+message StoredValueDataType
+{
+	required string Currency = 1;
+	optional string EanUpc = 2;
+	required double ItemAmount = 3;
+	optional OriginalPOITransactionType OriginalPOITransaction = 4;
+	optional string ProductCode = 5;
+	optional StoredValueAccountIDType StoredValueAccountID = 6;
+	optional string StoredValueProvider = 7;
+	required UnspecifiedType StoredValueTransactionType = 8;
+}
+
+message StoredValueRequestType
+{
+	optional string CustomerLanguage = 1;
+	required SaleDataType SaleData = 2;
+	repeated StoredValueDataType StoredValueData = 3;
+}
+
+message StoredValueResultType
+{
+	required string Currency = 1;
+	optional string EanUpc = 2;
+	optional TransactionIdentificationType HostTransactionID = 3;
+	required double ItemAmount = 4;
+	required string ProductCode = 5;
+	required StoredValueAccountStatusType StoredValueAccountStatus = 6;
+	required UnspecifiedType StoredValueTransactionType = 7;
+}
+
+message TransactionReportRequestType
+{
+	optional int64 BlockStart = 1;
+	optional int64 BlockStop = 2;
+	optional bool DescendingOrder = 3;
+	required SearchCriteriasType SearchCriterias = 4;
+	optional SearchOutputOrderType SearchOutputOrder = 5;
+}
+
+message CapturedSignatureType
+{
+	optional RawSignatureType RawSignature = 1;
+	optional SignatureImageType SignatureImage = 2;
+}
+
+message CardAcquisitionRequestType
+{
+	required CardAcquisitionTransactionType CardAcquisitionTransaction = 1;
+	required SaleDataType SaleData = 2;
+}
+
+message DiagnosisResponseType
+{
+	repeated HostStatusType HostStatus = 1;
+	repeated string LoggedSaleID = 2;
+	optional POIStatusType POIStatus = 3;
+	required ResponseType Response = 4;
+}
+
+message DisplayOutputType
+{
+	required UnspecifiedType Device = 1;
+	required UnspecifiedType InfoQualify = 2;
+	repeated MenuEntryType MenuEntry = 3;
+	optional int64 MinimumDisplayTime = 4;
+	required OutputContentType OutputContent = 5;
+	optional bytes OutputSignature = 6;
+	optional bool ResponseRequiredFlag = 7;
+}
+
+message DisplayRequestType
+{
+	repeated DisplayOutputType DisplayOutput = 1;
+}
+
+message DisplayResponseType
+{
+	repeated OutputResultType OutputResult = 1;
+}
+
+message EnableServiceRequestType
+{
+	optional DisplayOutputType DisplayOutput = 1;
+	optional UnspecifiedType ServicesEnabled = 2;
+	required UnspecifiedType TransactionAction = 3;
+}
+
+message EventNotificationType
+{
+	optional string CustomerLanguage = 1;
+	optional DisplayOutputType DisplayOutput = 2;
+	optional string EventDetails = 3;
+	required UnspecifiedType EventToNotify = 4;
+	optional bool MaintenanceRequiredFlag = 5;
+	optional bytes RejectedMessage = 6;
+	required int64 TimeStamp = 7;
+}
+
+message InputRequestType
+{
+	optional DisplayOutputType DisplayOutput = 1;
+	required InputDataType InputData = 2;
+}
+
+message InputUpdateType
+{
+	optional int64 MaxDecimalLength = 1;
+	optional int64 MaxLength = 2;
+	repeated MenuEntryType MenuEntry = 3;
+	required MessageReferenceType MessageReference = 4;
+	optional int64 MinLength = 5;
+	required OutputContentType OutputContent = 6;
+	optional bytes OutputSignature = 7;
+}
+
+message IssuerAndSerialNumberType
+{
+	required IssuerType Issuer = 1;
+	required int64 SerialNumber = 2;
+}
+
+message LoginResponseType
+{
+	optional POISystemDataType POISystemData = 1;
+	required ResponseType Response = 2;
+}
+
+message LoyaltyResultType
+{
+	optional double CurrentBalance = 1;
+	required LoyaltyAccountType LoyaltyAccount = 2;
+	optional LoyaltyAcquirerDataType LoyaltyAcquirerData = 3;
+	optional LoyaltyAmountType LoyaltyAmount = 4;
+	optional RebatesType Rebates = 5;
+}
+
+message LoyaltyTransactionType
+{
+	optional string Currency = 1;
+	required UnspecifiedType LoyaltyTransactionType = 2;
+	optional OriginalPOITransactionType OriginalPOITransaction = 3;
+	repeated SaleItemType SaleItem = 4;
+	optional double TotalAmount = 5;
+	optional TransactionConditionsType TransactionConditions = 6;
+}
+
+message RecipientIdentifierType
+{
+	required IssuerAndSerialNumberType IssuerAndSerialNumber = 1;
+}
+
+message ReversalRequestType
+{
+	optional CustomerOrderType CustomerOrder = 1;
+	required OriginalPOITransactionType OriginalPOITransaction = 2;
+	required UnspecifiedType ReversalReason = 3;
+	optional double ReversedAmount = 4;
+	optional SaleDataType SaleData = 5;
+}
+
+message SignerIdentifierType
+{
+	required IssuerAndSerialNumberType IssuerAndSerialNumber = 1;
+}
+
+message SignerType
+{
+	required AlgorithmIdentifier DigestAlgorithm = 1;
+	required bytes Signature = 2;
+	required AlgorithmIdentifier SignatureAlgorithm = 3;
+	required SignerIdentifierType SignerIdentifier = 4;
+	optional UnspecifiedType Version = 5;
+}
+
+message StoredValueResponseType
+{
+	required POIDataType POIData = 1;
+	required ResponseType Response = 2;
+	required SaleDataType SaleData = 3;
+	repeated StoredValueResultType StoredValueResult = 4;
+}
+
+message AbortRequestType
+{
+	required string AbortReason = 1;
+	optional DisplayOutputType DisplayOutput = 2;
+	required MessageReferenceType MessageReference = 3;
+}
+
+message CardReaderInitRequestType
+{
+	optional DisplayOutputType DisplayOutput = 1;
+	repeated UnspecifiedType ForceEntryMode = 2;
+	optional bool LeaveCardFlag = 3;
+	optional int64 MaxWaitingTime = 4;
+	optional bool WarmResetFlag = 5;
+}
+
+message CardReaderPowerOffRequestType
+{
+	optional DisplayOutputType DisplayOutput = 1;
+	optional int64 MaxWaitingTime = 2;
+}
+
+message KeyTransportType
+{
+	required bytes EncryptedKey = 1;
+	required AlgorithmIdentifier KeyEncryptionAlgorithm = 2;
+	required RecipientIdentifierType RecipientIdentifier = 3;
+	optional UnspecifiedType Version = 4;
+}
+
+message LoyaltyRequestType
+{
+	repeated LoyaltyDataType LoyaltyData = 1;
+	required LoyaltyTransactionType LoyaltyTransaction = 2;
+	required SaleDataType SaleData = 3;
+}
+
+message LoyaltyResponseType
+{
+	repeated LoyaltyResultType LoyaltyResult = 1;
+	required POIDataType POIData = 2;
+	repeated PaymentReceiptType PaymentReceipt = 3;
+	required ResponseType Response = 4;
+	required SaleDataType SaleData = 5;
+}
+
+message SignedDataType
+{
+	repeated bytes Certificate = 1;
+	repeated AlgorithmIdentifier DigestAlgorithm = 2;
+	required EncapsulatedContentType EncapsulatedContent = 3;
+	repeated SignerType Signer = 4;
+	optional UnspecifiedType Version = 5;
+}
+
+message AuthenticatedDataType
+{
+	required EncapsulatedContentType EncapsulatedContent = 1;
+	optional KEKType KEK = 2;
+	optional KeyTransportType KeyTransport = 3;
+	required bytes MAC = 4;
+	required AlgorithmIdentifier MACAlgorithm = 5;
+	optional UnspecifiedType Version = 6;
+}
+
+message EnvelopedDataType
+{
+	required EncryptedContentType EncryptedContent = 1;
+	optional KEKType KEK = 2;
+	optional KeyTransportType KeyTransport = 3;
+	optional UnspecifiedType Version = 4;
+}
+
+message ContentInformationType
+{
+	optional AuthenticatedDataType AuthenticatedData = 1;
+	required UnspecifiedType ContentType = 2;
+	optional DigestedDataType DigestedData = 3;
+	optional EnvelopedDataType EnvelopedData = 4;
+	optional NamedKeyEncryptedDataType NamedKeyEncryptedData = 5;
+	optional SignedDataType SignedData = 6;
+}
+
+message InputType
+{
+	optional bool ConfirmedFlag = 1;
+	optional string DigitInput = 2;
+	optional string FunctionKey = 3;
+	required UnspecifiedType InputCommand = 4;
+	optional int64 MenuEntryNumber = 5;
+	optional ContentInformationType Password = 6;
+	optional string TextInput = 7;
+}
+
+message MobileDataType
+{
+	optional GeolocationType Geolocation = 1;
+	optional string MaskedMSISDN = 2;
+	optional string MobileCountryCode = 3;
+	optional string MobileNetworkCode = 4;
+	optional ContentInformationType ProtectedMobileData = 5;
+	optional SensitiveMobileDataType SensitiveMobileData = 6;
+}
+
+message CardDataType
+{
+	repeated AllowedProductType AllowedProduct = 1;
+	repeated string AllowedProductCode = 2;
+	optional string CardCountryCode = 3;
+	repeated CustomerOrderType CustomerOrder = 4;
+	repeated UnspecifiedType EntryMode = 5;
+	optional string MaskedPAN = 6;
+	optional string PaymentAccountRef = 7;
+	optional string PaymentBrand = 8;
+	optional PaymentTokenType PaymentToken = 9;
+	optional ContentInformationType ProtectedCardData = 10;
+	optional SensitiveCardDataType SensitiveCardData = 11;
+}
+
+message CardholderPINType
+{
+	optional string AdditionalInput = 1;
+	required ContentInformationType EncrPINBlock = 2;
+	required UnspecifiedType PINFormat = 3;
+}
+
+message InputResultType
+{
+	required UnspecifiedType Device = 1;
+	required UnspecifiedType InfoQualify = 2;
+	optional InputType Input = 3;
+	required ResponseType Response = 4;
+}
+
+message PINRequestType
+{
+	optional string AdditionalInput = 1;
+	optional CardholderPINType CardholderPIN = 2;
+	optional string KeyReference = 3;
+	optional int64 MaxWaitingTime = 4;
+	optional string PINEncAlgorithm = 5;
+	optional UnspecifiedType PINFormat = 6;
+	required UnspecifiedType PINRequestType = 7;
+	optional string PINVerifMethod = 8;
+}
+
+message PINResponseType
+{
+	optional CardholderPINType CardholderPIN = 1;
+	required ResponseType Response = 2;
+}
+
+message PaymentInstrumentDataType
+{
+	optional CardDataType CardData = 1;
+	optional CheckDataType CheckData = 2;
+	optional MobileDataType MobileData = 3;
+	required UnspecifiedType PaymentInstrumentType = 4;
+}
+
+message PaymentResultType
+{
+	optional AmountsRespType AmountsResp = 1;
+	repeated UnspecifiedType AuthenticationMethod = 2;
+	optional CapturedSignatureType CapturedSignature = 3;
+	repeated CurrencyConversionType CurrencyConversion = 4;
+	optional string CustomerLanguage = 5;
+	optional InstalmentType Instalment = 6;
+	optional bool MerchantOverrideFlag = 7;
+	optional bool OnlineFlag = 8;
+	optional PaymentAcquirerDataType PaymentAcquirerData = 9;
+	optional PaymentInstrumentDataType PaymentInstrumentData = 10;
+	optional UnspecifiedType PaymentType = 11;
+	optional ContentInformationType ProtectedSignature = 12;
+	optional string ValidityDate = 13;
+}
+
+message PerformedTransactionType
+{
+	repeated LoyaltyResultType LoyaltyResult = 1;
+	required POIDataType POIData = 2;
+	optional PaymentResultType PaymentResult = 3;
+	required ResponseType Response = 4;
+	optional double ReversedAmount = 5;
+	optional SaleDataType SaleData = 6;
+}
+
+message TransactionReportType
+{
+	required POIDataType POIData = 1;
+	optional PaymentResultType PaymentResult = 2;
+	required ResponseType Response = 3;
+	required SaleDataType SaleData = 4;
+}
+
+message BatchResponseType
+{
+	repeated PerformedTransactionType PerformedTransaction = 1;
+	required ResponseType Response = 2;
+}
+
+message CardAcquisitionResponseType
+{
+	repeated CustomerOrderType CustomerOrder = 1;
+	repeated LoyaltyAccountType LoyaltyAccount = 2;
+	required POIDataType POIData = 3;
+	repeated string PaymentBrand = 4;
+	optional PaymentInstrumentDataType PaymentInstrumentData = 5;
+	required ResponseType Response = 6;
+	required SaleDataType SaleData = 7;
+}
+
+message InputResponseType
+{
+	required InputResultType InputResult = 1;
+	optional OutputResultType OutputResult = 2;
+}
+
+message PaymentAccountReqType
+{
+	optional UnspecifiedType AccountType = 1;
+	optional TransactionIdentificationType CardAcquisitionReference = 2;
+	optional PaymentInstrumentDataType PaymentInstrumentData = 3;
+}
+
+message PaymentAccountStatusType
+{
+	optional string Currency = 1;
+	optional double CurrentBalance = 2;
+	optional LoyaltyAccountStatusType LoyaltyAccountStatus = 3;
+	optional PaymentAcquirerDataType PaymentAcquirerData = 4;
+	optional PaymentInstrumentDataType PaymentInstrumentData = 5;
+}
+
+message PaymentDataType
+{
+	optional TransactionIdentificationType CardAcquisitionReference = 1;
+	optional CustomerOrderType CustomerOrder = 2;
+	optional InstalmentType Instalment = 3;
+	optional PaymentInstrumentDataType PaymentInstrumentData = 4;
+	optional UnspecifiedType PaymentType = 5;
+	optional string RequestedValidityDate = 6;
+	optional bool SplitPaymentFlag = 7;
+}
+
+message PaymentRequestType
+{
+	repeated LoyaltyDataType LoyaltyData = 1;
+	optional PaymentDataType PaymentData = 2;
+	required PaymentTransactionType PaymentTransaction = 3;
+	required SaleDataType SaleData = 4;
+}
+
+message PaymentResponseType
+{
+	repeated CustomerOrderType CustomerOrder = 1;
+	repeated LoyaltyResultType LoyaltyResult = 2;
+	required POIDataType POIData = 3;
+	repeated PaymentReceiptType PaymentReceipt = 4;
+	optional PaymentResultType PaymentResult = 5;
+	required ResponseType Response = 6;
+	required SaleDataType SaleData = 7;
+}
+
+message RepeatedMessageResponseType
+{
+	optional CardAcquisitionResponseType CardAcquisitionResponse = 1;
+	optional CardReaderAPDUResponseType CardReaderAPDUResponse = 2;
+	optional LoyaltyResponseType LoyaltyResponse = 3;
+	required MessageHeaderType MessageHeader = 4;
+	optional PaymentResponseType PaymentResponse = 5;
+	optional ReversalResponseType ReversalResponse = 6;
+	optional StoredValueResponseType StoredValueResponse = 7;
+}
+
+message TransactionReportResponseType
+{
+	required int64 BlockStart = 1;
+	required int64 BlockStop = 2;
+	required int64 ReportFullSize = 3;
+	required ResponseType Response = 4;
+	repeated TransactionReportType TransactionReport = 5;
+}
+
+message TransactionStatusResponseType
+{
+	optional MessageReferenceType MessageReference = 1;
+	optional RepeatedMessageResponseType RepeatedMessageResponse = 2;
+	required ResponseType Response = 3;
+}
+
+message TransactionToPerformType
+{
+	optional LoyaltyRequestType LoyaltyRequest = 1;
+	optional PaymentRequestType PaymentRequest = 2;
+	optional ReversalRequestType ReversalRequest = 3;
+}
+
+message BalanceInquiryRequestType
+{
+	optional LoyaltyAccountReqType LoyaltyAccountReq = 1;
+	optional PaymentAccountReqType PaymentAccountReq = 2;
+}
+
+message BalanceInquiryResponseType
+{
+	optional LoyaltyAccountStatusType LoyaltyAccountStatus = 1;
+	optional PaymentAccountStatusType PaymentAccountStatus = 2;
+	required ResponseType Response = 3;
+}
+
+message BatchRequestType
+{
+	optional bool RemoveAllFlag = 1;
+	repeated TransactionToPerformType TransactionToPerform = 2;
+}
+
+message SaleToPOIRequestType
+{
+	optional AbortRequestType AbortRequest = 1;
+	optional AdminRequestType AdminRequest = 2;
+	optional BalanceInquiryRequestType BalanceInquiryRequest = 3;
+	optional BatchRequestType BatchRequest = 4;
+	optional CardAcquisitionRequestType CardAcquisitionRequest = 5;
+	optional CardReaderAPDURequestType CardReaderAPDURequest = 6;
+	optional CardReaderInitRequestType CardReaderInitRequest = 7;
+	optional CardReaderPowerOffRequestType CardReaderPowerOffRequest = 8;
+	optional DiagnosisRequestType DiagnosisRequest = 9;
+	optional DisplayRequestType DisplayRequest = 10;
+	optional EnableServiceRequestType EnableServiceRequest = 11;
+	optional EventNotificationType EventNotification = 12;
+	optional GetTotalsRequestType GetTotalsRequest = 13;
+	optional InputRequestType InputRequest = 14;
+	optional InputUpdateType InputUpdate = 15;
+	optional LoginRequestType LoginRequest = 16;
+	optional LogoutRequestType LogoutRequest = 17;
+	optional LoyaltyRequestType LoyaltyRequest = 18;
+	required MessageHeaderType MessageHeader = 19;
+	optional PINRequestType PINRequest = 20;
+	optional PaymentRequestType PaymentRequest = 21;
+	optional PrintRequestType PrintRequest = 22;
+	optional ReconciliationRequestType ReconciliationRequest = 23;
+	optional ReversalRequestType ReversalRequest = 24;
+	optional ContentInformationType SecurityTrailer = 25;
+	optional SoundRequestType SoundRequest = 26;
+	optional StoredValueRequestType StoredValueRequest = 27;
+	optional TransactionReportRequestType TransactionReportRequest = 28;
+	optional TransactionStatusRequestType TransactionStatusRequest = 29;
+	optional TransmitRequestType TransmitRequest = 30;
+}
+
+message SaleToPOIResponseType
+{
+	optional AdminResponseType AdminResponse = 1;
+	optional BalanceInquiryResponseType BalanceInquiryResponse = 2;
+	optional BatchResponseType BatchResponse = 3;
+	optional CardAcquisitionResponseType CardAcquisitionResponse = 4;
+	optional CardReaderAPDUResponseType CardReaderAPDUResponse = 5;
+	optional CardReaderInitResponseType CardReaderInitResponse = 6;
+	optional CardReaderPowerOffResponseType CardReaderPowerOffResponse = 7;
+	optional DiagnosisResponseType DiagnosisResponse = 8;
+	optional DisplayResponseType DisplayResponse = 9;
+	optional EnableServiceResponseType EnableServiceResponse = 10;
+	optional GetTotalsResponseType GetTotalsResponse = 11;
+	optional InputResponseType InputResponse = 12;
+	optional LoginResponseType LoginResponse = 13;
+	optional LogoutResponseType LogoutResponse = 14;
+	optional LoyaltyResponseType LoyaltyResponse = 15;
+	required MessageHeaderType MessageHeader = 16;
+	optional PINResponseType PINResponse = 17;
+	optional PaymentResponseType PaymentResponse = 18;
+	optional PrintResponseType PrintResponse = 19;
+	optional ReconciliationResponseType ReconciliationResponse = 20;
+	optional ReversalResponseType ReversalResponse = 21;
+	optional ContentInformationType SecurityTrailer = 22;
+	optional SoundResponseType SoundResponse = 23;
+	optional StoredValueResponseType StoredValueResponse = 24;
+	optional TransactionReportResponseType TransactionReportResponse = 25;
+	optional TransactionStatusResponseType TransactionStatusResponse = 26;
+	optional TransmitResponseType TransmitResponse = 27;
+}
+
